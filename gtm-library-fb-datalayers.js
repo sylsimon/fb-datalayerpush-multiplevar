@@ -1,27 +1,21 @@
-//references: https://developers.facebook.com/docs/analytics/send_data/events | https://developers.facebook.com/docs/facebook-pixel/implementation/dynamic-ads | https://developers.facebook.com/docs/facebook-pixel/implementation/conversion-tracking
-//Capitalised words are dynamic variables to be included
+// REFERENCES
 
-//required parameters for DYNAMIC ADS ONLY
-function pushTracking(VALUEOFBASKET, TYPE, SKU, QTY) {
-    console.log(TYPE);
+// https://developers.facebook.com/docs/analytics/send_data/events
+// https://developers.facebook.com/docs/facebook-pixel/implementation/dynamic-ads
+// https://developers.facebook.com/docs/facebook-pixel/implementation/conversion-tracking
+
+
+//BARE MINIMUM - required parameters for Facebook DYNAMIC ADS 
+function fbDynamicAdsPush(eventName, currencyXYZ, basketValue, arrayOfSKUs) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-        currency: 'MYR',
-        value: VALUEOFBASKET, //interger or float
-        content_ids: [SKU, SKU], //Product IDs associated with the event, such as SKUs (e.g. ['ABC123', 'XYZ789']). Can be an array.
-        content_type: TYPE, //string
-        contents: [{ //array of JSON objects, id and quantity are required fields
-                id: SKU, //array of intergers or strings (e.g. ['ABC123', 'XYZ789'])
-                quantity: QTY //interger or float
-            },
-            {
-                id: SKU,
-                quantity: QTY
-            }
-        ]
+        'fbParameterObject': {
+            value: basketValue,         // interger or float of the total basket value
+            currency: currencyXYZ,      // 3-letter currrency code as a string 'MYR' or 'USD' etc
+            content_type: 'product',    // required parameter
+            content_ids: arrayOfSKUs    // product IDs (or SKU's) associated with the event stored in an array e.g. ['ABC123', 'XYZ789']
+        },
+        'event': eventName
     });
-}
-
-function vid1_a() {
-    pushTracking("General Play Video Click", "Site Interactions");
+    console.log("event:",eventName, "with dynamic product parameters pushed successfully to the dataLayer");
 }
