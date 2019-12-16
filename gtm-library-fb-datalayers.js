@@ -1,3 +1,4 @@
+
 // REFERENCES
 
 // https://developers.facebook.com/docs/analytics/send_data/events
@@ -18,4 +19,3 @@ function fbDynamicAdsPush(eventName, currencyXYZ, basketValue, arrayOfSKUs) {
         'event': eventName
     });
     console.log("event:",eventName, "with dynamic product parameters pushed successfully to the dataLayer");
-}
