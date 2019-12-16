@@ -6,8 +6,11 @@
 // https://developers.facebook.com/docs/facebook-pixel/implementation/conversion-tracking
 
 
+var transaction_id = 
+
+
 //BARE MINIMUM - required parameters for Facebook DYNAMIC ADS 
-function dynamicAdsPush(fbEventName, googleEventName, currencyXYZ, basketValue, fbArrayOfSKUs, googleArrayOfSKUs) {
+function dynamicAdsPush(fbEventName, googleEventName, currencyXYZ, basketValue, discountValue, transactionID, fbArrayOfSKUs, googleArrayOfSKUs) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
         'fbParameterObject': {
@@ -18,7 +21,13 @@ function dynamicAdsPush(fbEventName, googleEventName, currencyXYZ, basketValue, 
         },
         'googleParameterObject': {
             value: basketValue,         // interger or float of the total basket value
-            items: googleArrayOfSKUs    // product IDs (or SKU's) and google business vertical stored in an array+objects e.g. [{'id':'ABC123', 'google_business_vertical': 'retail'},{'id':'ABC321', 'google_business_vertical': 'retail'}]
+            discount: discountValue,    // interger or float of the total discount
+            transaction_id: transactionID,
+            currency: currencyXYZ,
+            items: googleArrayOfSKUs,   // product IDs (or SKU's) and google business vertical stored in an array+objects e.g. [{'id':'ABC123', 'quantity':5, 'price':12, 'google_business_vertical': 'retail'},{'id':'ABC321', 'quantity':2, 'price':7, 'google_business_vertical': 'retail'}]
+            aw_merchant_id: 147157546,
+            aw_feed_country: 'MY',
+            aw_feed_language: 'EN',    
         },
         'fbEventName': fbEventName,
         'googleEventName': googleEventName,
