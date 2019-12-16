@@ -27,7 +27,8 @@ function dynamicAdsPush(fbEventName, googleEventName, currencyXYZ, basketValue, 
             items: googleArrayOfSKUs,   // product IDs (or SKU's) and google business vertical stored in an array+objects e.g. [{'id':'ABC123', 'quantity':5, 'price':12, 'google_business_vertical': 'retail'},{'id':'ABC321', 'quantity':2, 'price':7, 'google_business_vertical': 'retail'}]
             aw_merchant_id: 147157546,
             aw_feed_country: 'MY',
-            aw_feed_language: 'EN',    
+            aw_feed_language: 'EN',
+            event: googleEventName    
         },
         'fbEventName': fbEventName,
         'googleEventName': googleEventName,
