@@ -9,7 +9,7 @@ dynamicAdsPush(
     ['11234'],                                  // populated dynamically: product IDs (or SKU's) associated with the event stored in an array
     [{                                          
         'id':'11234', 
-        'google_business_vertical': 'retail'
+        'google_business_vertical': 'retail',
         'quantity':5, 
         'price':12
     }]
@@ -26,19 +26,19 @@ dynamicAdsPush(
     ['11234', '11112', '10982'],                // populated dynamically: product IDs (or SKU's) associated with the event stored in an array
     [{                                          
         'id':'11234', 
-        'google_business_vertical': 'retail'
+        'google_business_vertical': 'retail',
         'quantity':5, 
         'price':12
     },                                          
     {
         'id':'11112',                           // product IDs (or SKU's), quantity, price and google business vertical stored in an array+objects
-        'google_business_vertical': 'retail'
+        'google_business_vertical': 'retail',
         'quantity':2, 
         'price':7
     },
     {
         'id':'10982', 
-        'google_business_vertical': 'retail'
+        'google_business_vertical': 'retail',
         'quantity':12, 
         'price':4
     }]
